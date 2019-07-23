@@ -1,0 +1,14 @@
+Name: <%= @person.name%></br>
+Height: <%= @person.height%></br>
+Mass: <%= @person.mass%></br>
+Hair Color: <%= @person.hair_color%></br>
+Skin Color: <%= @person.skin_color%></br>
+Eye Color: <%= @person.eye_color%></br>
+Birth Year: <%= @person.birth_year%></br>
+Gender: <%= @person.gender%></br>
+Homeworld: <%= @person.homeworld.name%></br>
+
+Films:</br>
+<% @person.films.each do |film|%>
+    <%= link_to film.title, film_path(get_id(film.url))%></br>
+<%end%>

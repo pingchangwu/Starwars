@@ -1,0 +1,17 @@
+Name: <%= @vehicle.name%></br>
+Model: <%= @vehicle.model%></br>
+Manufacturer: <%= @vehicle.manufacturer%></br>
+Cost in Credits: <%= @vehicle.cost_in_credits%></br>
+length: <%= @vehicle.length%></br>
+Max Atmosphering Speed: <%= @vehicle.max_atmosphering_speed%></br>
+Crew: <%= @vehicle.crew%></br>
+Passengers: <%= @vehicle.passengers%></br>
+Cargo Capacity: <%= @vehicle.cargo_capacity%></br>
+Consumables: <%= @vehicle.consumables%></br>
+Vehicle Class: <%= @vehicle.vehicle_class%></br>
+Pilots:<%= @vehicle.pilots%></br>
+
+Films:</br>
+<% @vehicle.films.each do |film|%>
+    <%= link_to film.title, film_path(get_id(film.url))%></br>
+<%end%>

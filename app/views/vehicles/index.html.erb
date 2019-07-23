@@ -1,0 +1,3 @@
+<% @vehicles.each do |vehicle|%>
+    <h3>Name:</h3> <%= link_to vehicle.name, vehicle_path(get_id(vehicle.url))%>
+<%end%>

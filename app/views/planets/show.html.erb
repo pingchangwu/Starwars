@@ -1,0 +1,18 @@
+Name: <%= @planet.name%></br>
+Rotation Period: <%= @planet.rotation_period%></br>
+Diameter: <%=@planet.diameter%></br>
+Climate: <%=@planet.climate%></br>
+Gravity: <%=@planet.gravity%></br>
+Terrain: <%=@planet.terrain%></br>
+Surface Water: <%=@planet.surface_water%></br>
+Population: <%=@planet.population%></br>
+</br>
+Residents:</br>
+<% @planet.residents.each do |resident|%>
+    <%= link_to resident.name, person_path(get_id(resident.url))%></br>
+<%end%>
+</br>
+Films:</br>
+<% @planet.films.each do |film|%>
+    <%= link_to film.title, film_path(get_id(film.url))%></br>
+<%end%>

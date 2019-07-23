@@ -1,0 +1,22 @@
+Title: <%= @film.title%></br>
+Episode: <%= @film.episode_id%></br>
+Director: <%=@film.director%></br>
+Release Date: <%=@film.release_date%></br>
+Producer: <%=@film.producer%></br>
+</br>
+Opening Crawl: <%=@film.opening_crawl%></br>
+</br>
+<b>Characters:</b></br>
+<% @film.characters.each do |character|%>
+    <%= link_to character.name, person_path(get_id(character.url))%></br>
+<%end%>
+</br>
+<b>Vehicles:</b></br>
+<% @film.vehicles.each do |vehicle|%>
+    <%= link_to vehicle.name, vehicle_path(get_id(vehicle.url))%></br>
+<%end%>
+</br>
+<b>Planets:</b></br>
+<% @film.planets.each do |planet|%>
+    <%= link_to planet.name, planet_path(get_id(planet.url))%></br>
+<%end%>

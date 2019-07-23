@@ -1,0 +1,3 @@
+<% @planets.each do |planet|%>
+    <h3>Name:</h3> <%= link_to planet.name, planet_path(get_id(planet.url))%>
+<%end%>
