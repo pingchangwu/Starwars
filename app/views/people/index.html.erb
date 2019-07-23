@@ -1,3 +1,9 @@
-<% @people.each do |person|%>
-    <h3>Name:</h3> <%= link_to person.name, person_path(get_id(person.url))%>
+<%if @people.present?%>
+  <% @people.each do |person|%>
+    <%person.present?%>
+      <h3>Name:</h3> <%= link_to person.name, person_path(get_id(person.url))%>
+    <%end%>
+  <%end%>
+<%else%>
+  Something went wrong! Check back at a later time.
 <%end%>

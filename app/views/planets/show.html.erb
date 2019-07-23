@@ -1,18 +1,26 @@
-Name: <%= @planet.name%></br>
-Rotation Period: <%= @planet.rotation_period%></br>
-Diameter: <%=@planet.diameter%></br>
-Climate: <%=@planet.climate%></br>
-Gravity: <%=@planet.gravity%></br>
-Terrain: <%=@planet.terrain%></br>
-Surface Water: <%=@planet.surface_water%></br>
-Population: <%=@planet.population%></br>
-</br>
-Residents:</br>
-<% @planet.residents.each do |resident|%>
-    <%= link_to resident.name, person_path(get_id(resident.url))%></br>
-<%end%>
-</br>
-Films:</br>
-<% @planet.films.each do |film|%>
-    <%= link_to film.title, film_path(get_id(film.url))%></br>
+<%if @planet.present?%>
+  Name: <%=check_for_record(@planet.name)%></br>
+  Rotation Period: <%=check_for_record(@planet.rotation_period)%></br>
+  Diameter: <%=check_for_record(@planet.diameter)%></br>
+  Climate: <%=check_for_record(@planet.climate)%></br>
+  Gravity: <%=check_for_record(@planet.gravity)%></br>
+  Terrain: <%=check_for_record(@planet.terrain)%></br>
+  Surface Water: <%=check_for_record(@planet.surface_water)%></br>
+  Population: <%=check_for_record(@planet.population)%></br>
+  </br>
+  Residents:</br>
+  <% @planet.residents.each do |resident|%>
+    <%if resident.present?%>
+      <%= link_to resident.name, person_path(get_id(resident.url))%></br>
+    <%end%>
+  <%end%>
+  </br>
+  Films:</br>
+  <% @planet.films.each do |film|%>
+    <%if film.present?%>
+      <%= link_to film.title, film_path(get_id(film.url))%></br>
+    <%end%>
+  <%end%>
+<%else%>
+  Something went wrong! Check back at a later time.
 <%end%>

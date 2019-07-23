@@ -1,14 +1,20 @@
-Name: <%= @person.name%></br>
-Height: <%= @person.height%></br>
-Mass: <%= @person.mass%></br>
-Hair Color: <%= @person.hair_color%></br>
-Skin Color: <%= @person.skin_color%></br>
-Eye Color: <%= @person.eye_color%></br>
-Birth Year: <%= @person.birth_year%></br>
-Gender: <%= @person.gender%></br>
-Homeworld: <%= @person.homeworld.name%></br>
+<%if @person.present?%>
+  Name: <%= check_for_record(@person.name)%></br>
+  Height: <%= check_for_record(@person.height)%></br>
+  Mass: <%= check_for_record(@person.mass)%></br>
+  Hair Color: <%= check_for_record(@person.hair_color)%></br>
+  Skin Color: <%= check_for_record(@person.skin_color)%></br>
+  Eye Color: <%= check_for_record(@person.eye_color)%></br>
+  Birth Year: <%= check_for_record(@person.birth_year)%></br>
+  Gender: <%= check_for_record(@person.gender)%></br>
+  Homeworld: <%= check_for_record(@person.homeworld.name)%></br>
 
-Films:</br>
-<% @person.films.each do |film|%>
-    <%= link_to film.title, film_path(get_id(film.url))%></br>
+  Films:</br>
+  <% @person.films.each do |film|%>
+    <%if film.present?%>
+      <%= link_to film.title, film_path(get_id(film.url))%></br>
+    <%end%>
+  <%end%>
+<%else%>
+  Something went wrong! Check back at a later time.
 <%end%>

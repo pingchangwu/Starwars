@@ -1,3 +1,9 @@
-<% @planets.each do |planet|%>
-    <h3>Name:</h3> <%= link_to planet.name, planet_path(get_id(planet.url))%>
+<%@planets.present?%>
+  <% @planets.each do |planet|%>
+    <%if planet.present?%>
+      <h3>Name:</h3> <%= link_to planet.name, planet_path(get_id(planet.url))%>
+    <%end%>
+  <%end%>
+<%else%>
+  Something went wrong! Check back at a later time.
 <%end%>

@@ -1,3 +1,9 @@
-<% @vehicles.each do |vehicle|%>
-    <h3>Name:</h3> <%= link_to vehicle.name, vehicle_path(get_id(vehicle.url))%>
+<%if @vehicles.present?%>
+  <% @vehicles.each do |vehicle|%>
+    <%if vehicle.present?%>
+      <h3>Name:</h3> <%= link_to vehicle.name, vehicle_path(get_id(vehicle.url))%>
+    <%end%>
+  <%end%>
+<%else%>
+  Something went wrong! Check back at a later time.
 <%end%>

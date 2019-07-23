@@ -1,17 +1,22 @@
-Name: <%= @vehicle.name%></br>
-Model: <%= @vehicle.model%></br>
-Manufacturer: <%= @vehicle.manufacturer%></br>
-Cost in Credits: <%= @vehicle.cost_in_credits%></br>
-length: <%= @vehicle.length%></br>
-Max Atmosphering Speed: <%= @vehicle.max_atmosphering_speed%></br>
-Crew: <%= @vehicle.crew%></br>
-Passengers: <%= @vehicle.passengers%></br>
-Cargo Capacity: <%= @vehicle.cargo_capacity%></br>
-Consumables: <%= @vehicle.consumables%></br>
-Vehicle Class: <%= @vehicle.vehicle_class%></br>
-Pilots:<%= @vehicle.pilots%></br>
+<%if @vehicle.present?%>
+  Name: <%=check_for_record(@vehicle.name)%></br>
+  Model: <%=check_for_record(@vehicle.model)%></br>
+  Manufacturer: <%=check_for_record(@vehicle.manufacturer)%></br>
+  Cost in Credits: <%=check_for_record(@vehicle.cost_in_credits)%></br>
+  length: <%=check_for_record(@vehicle.length)%></br>
+  Max Atmosphering Speed: <%=check_for_record(@vehicle.max_atmosphering_speed)%></br>
+  Crew: <%=check_for_record(@vehicle.crew)%></br>
+  Passengers: <%=check_for_record(@vehicle.passengers)%></br>
+  Cargo Capacity: <%=check_for_record(@vehicle.cargo_capacity)%></br>
+  Consumables: <%=check_for_record(@vehicle.consumables)%></br>
+  Vehicle Class: <%=check_for_record(@vehicle.vehicle_class)%></br>
+  Pilots:<%=check_for_record(@vehicle.pilots)%></br>
 
-Films:</br>
-<% @vehicle.films.each do |film|%>
-    <%= link_to film.title, film_path(get_id(film.url))%></br>
+  Films:</br>
+  <% @vehicle.films.each do |film|%>
+    <%if film.present?%>
+      <%= link_to film.title, film_path(get_id(film.url))%></br>
+    <%end%>  <%end%>
+<%else%>
+  Something went wrong! Check back at a later time.
 <%end%>
