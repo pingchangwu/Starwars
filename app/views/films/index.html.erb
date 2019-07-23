@@ -1,7 +1,7 @@
-<input type="text" name="film_search"><br>
+<input type="text" name="film_search" id="film_search"><br>
 
 <% @films.each do |film|%>
-  <div data-title="<%=film.title%>">
+  <div data-title="<%=film.title%>" class="film_container" id="film_<%=film.episode_id%>">
     <h3>Title:</h3> <%= link_to film.title, film_path(get_id(film.url))%>
   </div>
 <%end%>
