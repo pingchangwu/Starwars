@@ -7,7 +7,8 @@ ruby '2.3.7'
 gem 'rails', '~> 5.2.3'
 #starwars api
 gem 'tatooine'
-
+#async rendering
+gem 'render_async'
 #jquery
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

@@ -8,24 +8,18 @@
   Opening Crawl: <%=check_for_record(@film.opening_crawl)%></br>
   </br>
   <b>Characters:</b></br>
-  <% @film.characters.each do |character|%>
-    <%if character.present?%>
-      <%= link_to character.name, person_path(get_id(character.url))%></br>
-    <%end%>
+  <%= render_async characters_render_path(id: params[:id]), error_message: '<p>Sorry, Something went wrong. Try again later</p>' do %>
+    loading characters...
   <%end%>
   </br>
   <b>Vehicles:</b></br>
-  <% @film.vehicles.each do |vehicle|%>
-    <%if vehicle.present?%>
-      <%= link_to vehicle.name, vehicle_path(get_id(vehicle.url))%></br>
-    <%end%>
+  <%= render_async vehicles_render_path(id: params[:id]), error_message: '<p>Sorry, Something went wrong. Try again later</p>' do %>
+    loading vehicles...
   <%end%>
   </br>
   <b>Planets:</b></br>
-  <% @film.planets.each do |planet|%>
-    <%if planet.present?%>
-      <%= link_to planet.name, planet_path(get_id(planet.url))%></br>
-    <%end%>
+  <%= render_async planets_render_path(id: params[:id]), error_message: '<p>Sorry, Something went wrong. Try again later</p>' do %>
+    loading planets...
   <%end%>
 <%else%>
   Something went wrong! Check back at a later time.

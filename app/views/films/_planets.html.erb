@@ -1,0 +1,5 @@
+  <% @planets.each do |planet|%>
+    <%if planet.present?%>
+      <%= link_to planet.name, planet_path(get_id(planet.url))%></br>
+    <%end%>
+  <%end%>

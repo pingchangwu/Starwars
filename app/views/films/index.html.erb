@@ -1,12 +1,3 @@
-<%if @films.present?%>
-  <input type="text" name="film_search" id="film_search"><br>
-  <% @films.each do |film|%>
-    <%if film.present?%>
-      <div data-title="<%=film.title%>" class="film_container" id="film_<%=film.episode_id%>">
-        <h3>Title:</h3> <%= link_to film.title, film_path(get_id(film.url))%>
-      </div>
-    <%end%>
-  <%end%>
-<%else%>
-    Something went wrong! Check back at a later time.
+<%= render_async films_render_path() do %>
+  loading films..
 <%end%>

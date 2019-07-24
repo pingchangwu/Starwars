@@ -1,0 +1,5 @@
+  <% @characters.each do |character|%>
+    <%if character.present?%>
+      <%= link_to character.name, person_path(get_id(character.url))%></br>
+    <%end%>
+  <%end %>
