@@ -6,3 +6,7 @@
  ### Any improvements you would make to your application?
  
  I would make a pull request to the repo so users can make full api calls. This would reduce a lot of the problems that I have. I could have made a more elegant solution to check for bad data in the hash I was receiving from my API Helper. Something interesting would to make a more comprehensive search function that searches for everything instead of films.
+ 
+ 
+ 
+Note: The api on the sheet says 'https://swapi.com' but when visiting the site, it is just a parked domain. I assumed either the site got moved or this url was a typo. The working url is 'https://swapi.co'. I thought it was worth mentioning in case future applicants faced similar problems.
